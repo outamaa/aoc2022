@@ -1,5 +1,4 @@
 use std::collections::HashSet;
-use std::hash::Hash;
 use std::str::FromStr;
 
 struct Rucksack {
@@ -112,7 +111,7 @@ mod tests {
 
         assert_eq!(
             sum_group_priorities(input),
-            7831
+            2683
         )
     }
 }
