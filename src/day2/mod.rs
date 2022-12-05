@@ -210,7 +210,7 @@ mod tests {
 
         assert_eq!(
             sum_of_scores,
-            15
+            12
         );
     }
 
@@ -224,7 +224,7 @@ mod tests {
 
         assert_eq!(
             sum_of_scores,
-            15
+            15442
         );
     }
 
