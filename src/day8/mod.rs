@@ -156,7 +156,7 @@ impl Forest {
                 .iter()
                 .take_while(|&h| tree_height > *h)
                 .count() as u32;
-            if number_of_smaller_trees < max_trees { number_of_smaller_trees + 1 } else { max_trees}
+            if number_of_smaller_trees < max_trees { number_of_smaller_trees + 1 } else { max_trees }
         }
     }
 
@@ -182,6 +182,7 @@ impl Forest {
 
 #[cfg(test)]
 mod tests {
+    use test::Bencher;
     use crate::day8::Forest;
 
     #[test]
@@ -212,8 +213,8 @@ mod tests {
         let forest: Forest = input.parse().unwrap();
 
         assert_eq!(
-            forest.scenic_scores(),
-            vec![vec![0]],
+            forest.max_scenic_score(),
+            16,
         )
     }
 
@@ -228,4 +229,23 @@ mod tests {
         )
     }
 
+    #[bench]
+    fn bench_input1(b: &mut Bencher) {
+        let input = include_str!("input.txt");
+
+        b.iter(|| {
+            let forest: Forest = input.parse().unwrap();
+            forest.number_of_visible_trees();
+        })
+    }
+
+    #[bench]
+    fn bench_input2(b: &mut Bencher) {
+        let input = include_str!("input.txt");
+
+        b.iter(|| {
+            let forest: Forest = input.parse().unwrap();
+            forest.max_scenic_score();
+        })
+    }
 }
